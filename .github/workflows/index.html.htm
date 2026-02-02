@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Lavanya ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Allura&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+overflow:hidden;
+background:#000;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+opacity:0;
+transition:1s ease;
+}
+
+.active{opacity:1;z-index:1;}
+
+#slide1{background:linear-gradient(135deg,#ff6fa5,#ff9ec4);}
+#slide2{background:linear-gradient(135deg,#fff0f5,#ffc0cb);}
+#slide3{background:linear-gradient(135deg,#ff8fb3,#ff477e);}
+#slide4{background:linear-gradient(135deg,#000,#2b0020);}
+
+h1{
+font-family:'Great Vibes',cursive;
+font-size:4rem;
+color:white;
+text-shadow:0 0 25px pink;
+text-align:center;
+}
+
+.btn{
+padding:15px 45px;
+border:none;
+border-radius:40px;
+font-size:1.5rem;
+cursor:pointer;
+margin:15px;
+font-family:'Allura',cursive;
+}
+
+.yes{background:#ff2f68;color:white;}
+.no{background:#ff9aa2;color:white;position:absolute;}
+
+.letter{
+background:#fffaf3;
+padding:40px;
+border-radius:20px;
+max-width:650px;
+font-size:1.8rem;
+font-family:'Allura',cursive;
+line-height:1.8;
+border:2px solid #ff7aa2;
+box-shadow:0 0 40px rgba(255,105,180,.5);
+background-image: repeating-linear-gradient(
+rgba(255,182,193,.2) 0px,
+rgba(255,182,193,.2) 1px,
+transparent 28px
+);
+}
+
+.gif{
+width:320px;
+border-radius:25px;
+box-shadow:0 0 50px pink;
+}
+
+.heart{
+position:absolute;
+font-size:24px;
+color:#ff69b4;
+opacity:.8;
+animation:float 6s infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="slide1" class="slide active">
+<h1>Lavanya 💖 Will you be my Valentine?</h1>
+<button class="btn yes" onclick="go(2)">YES ❤️</button>
+<button class="btn no" id="noBtn">NO 😜</button>
+</div>
+
+<div id="slide2" class="slide">
+<div class="letter">
+My beautiful Lavanya 💕,<br><br>
+Thank you for coming into my life like a miracle.
+Your smile lights up my world and your love fills my heart.
+I promise to love you forever and always. ❤️
+</div>
+<button class="btn yes" onclick="go(3)">Next</button>
+</div>
+
+<div id="slide3" class="slide">
+<div class="letter">
+Lavanya 💖,<br><br>
+I love you more than words can say.
+You are my happiness, my dream, my forever.
+Every heartbeat whispers your name. ❤️
+</div>
+<button class="btn yes" onclick="go(4)">Next</button>
+</div>
+
+<div id="slide4" class="slide">
+<img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" alt="Romantic Hug">
+</div>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2023/03/28/audio_8c89c3e08c.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const slides=document.querySelectorAll(".slide");
+let current=0;
+
+function go(n){
+slides[current].classList.remove("active");
+current=n-1;
+slides[current].classList.add("active");
+}
+
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+noBtn.style.left=Math.random()*80+"%";
+noBtn.style.top=Math.random()*80+"%";
+});
+
+const music=document.getElementById("music");
+document.body.addEventListener("click",()=>music.play(),{once:true});
+
+for(let i=0;i<28;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=3+Math.random()*6+"s";
+document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
